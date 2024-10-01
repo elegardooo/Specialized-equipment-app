@@ -58,19 +58,19 @@
 ## 2.2 Интерфейс пользователя
 Окно входа в приложение. 
 
-![Окно входа в приложение]("link")  
+![Окно входа в приложение](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignInWindow.png)  
 
 Окно каталога для зарегистрированного пользователя.
 
-![Окно каталога для зарегистрированного пользователя]("link") 
+![Окно каталога для зарегистрированного пользователя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CatalogWindow.png) 
 
 Окно каталога для гостя.
 
-![Окно каталога для гостя]("link") 
+![Окно каталога для гостя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CatalogWindowForGuest.png) 
 
 Окно корзины.
 
-![Окно корзины]("link") 
+![Окно корзины](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CartWindow.png) 
 
 <a name="user_specifications"/>
 
