@@ -60,21 +60,45 @@
 <a name="user_interface"/>
 
 ## 2.2 Интерфейс пользователя
-Окно входа в приложение. 
+Основное окно входа в приложение. 
 
-![Окно входа в приложение](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignInWindow.png)  
+![Окно входа в приложение](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/AppMenuWindow.png)  
+
+Окно входа в приложение для зарегстрированного пользователя.
+
+![Окно входа в приложение для зарегстрированного пользователя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignInWindow.png)
+
+Окно входа в приложение для зарегстрированного пользователя при попытке входа с неверно введенными данными.
+
+![Окно входа в приложение для зарегстрированного пользователя при попытке входа с неверно введенными данными](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignInWindowUserNotExists.png)
+
+Окно для регистрации в приложении.
+
+![Окно для регистрации в приложении](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignUpWindow.png)
+
+Окно для регистрации в приложении при вводе уже существующего логина.
+
+![Окно для регистрации в приложении при вводе уже существующего логина](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/SignUpWindowUserAlreadyExsists.png)
 
 Окно каталога для зарегистрированного пользователя.
 
 ![Окно каталога для зарегистрированного пользователя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CatalogWindow.png) 
 
+Окно профиля для зарегстрированного пользователя.
+
+![Окно профиля для зарегистрированного пользователя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/ProfileWindow.png)
+
 Окно каталога для гостя.
 
 ![Окно каталога для гостя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CatalogWindowForGuest.png) 
 
-Окно корзины.
+Окно профиля для гостя.
 
-![Окно корзины](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CartWindow.png) 
+![Окно профиля для гостя](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/ProfileWindowForGuest.png)
+
+Окно корзины(Только для зарегистрированного пользователя).
+
+![Окно корзины(Только для зарегистрированного пользователя)](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Mockups/CartWindow.png) 
 
 <a name="user_specifications"/>
 
