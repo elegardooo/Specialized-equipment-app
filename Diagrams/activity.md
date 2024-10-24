@@ -8,7 +8,7 @@
 
 ### 1. Авторизация<a name="sign_up"></a>
 
-![Авторизация]()
+![Авторизация](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/authActivity.png)
 
 ### 2. Создание заказа<a name="order_creation"></a>
 
