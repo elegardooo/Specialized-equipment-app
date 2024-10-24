@@ -12,7 +12,7 @@
 
 ### 2. Создание заказа<a name="order_creation"></a>
 
-![Добавление новой транзакции]()
+![Добавление новой транзакции](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/addToCartActivity.png)
   
 ### 3. Просмотр истории заказов<a name="order_history"></a>
 
