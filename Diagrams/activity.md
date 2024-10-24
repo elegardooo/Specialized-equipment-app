@@ -16,4 +16,4 @@
   
 ### 3. Просмотр истории заказов<a name="order_history"></a>
 
-![Просмотр истории по месяцу]()
+![Просмотр истории по месяцу](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/historyActivity.png)
