@@ -8,12 +8,12 @@
 
 ### 1. Авторизация<a name="sign_up"></a>
 
-![Авторизация]()
+![Авторизация](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/authSequence.png)
 
 ### 2. Создание заказа<a name="order_creation"></a>
 
-![Добавление новой транзакции]()
+![Добавление новой транзакции](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/addToCartSequence.png)
   
 ### 3. Просмотр истории заказов<a name="order_history"></a>
 
-![Просмотр истории по месяцу]()
+![Просмотр истории по месяцу](https://github.com/elegardooo/Specialized-equipment-app/blob/main/Diagrams/Images/historySequence.png)
