@@ -3,6 +3,7 @@ package com.example.specequipmentapp.ui.signin
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -34,11 +35,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.specequipmentapp.MainActivity
@@ -90,13 +94,6 @@ class SignInActivity : ComponentActivity() {
     }
 }
 
-fun validateCredentials(email: String, password: String): Boolean {
-    if(email == "log" && password == "pass")
-        return true
-    else
-        return false
-}
-
 @Composable
 fun SignInScreen(
     onSignIn: (String, String) -> Unit,
@@ -108,6 +105,15 @@ fun SignInScreen(
     var passwordVisible by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+    val configuration = LocalConfiguration.current
+    val isTablet = configuration.screenWidthDp >= 600
+
+    val widthFraction = when {
+        isTablet && configuration.orientation == Configuration.ORIENTATION_LANDSCAPE -> 0.45f
+        isTablet -> 0.6f
+        configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && !isTablet -> 0.8f
+        else -> 1f
+    }
 
     Column(
         modifier = Modifier
@@ -116,11 +122,20 @@ fun SignInScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "Specialized equipment app",
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 24.dp),
+            textAlign = TextAlign.Center
+        )
         OutlinedTextField(
             value = email,
             onValueChange = {email = it},
             label = { Text("Email")},
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(widthFraction),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next)
@@ -132,7 +147,7 @@ fun SignInScreen(
             value = password,
             onValueChange = {password = it},
             label = { Text("Password")},
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(widthFraction),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Done
@@ -170,7 +185,7 @@ fun SignInScreen(
                 text = errorMessage,
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.align(Alignment.Start)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             Spacer(modifier = Modifier.height(8.dp))
         }
@@ -189,7 +204,7 @@ fun SignInScreen(
                     }
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(widthFraction)
         ) {
             Text("Sign In")
         }

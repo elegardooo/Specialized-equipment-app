@@ -2,6 +2,7 @@ package com.example.specequipmentapp.ui.signup
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -31,11 +32,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.specequipmentapp.MainActivity
@@ -95,6 +99,15 @@ fun SignUpScreen(
     var passwordVisibleConfirmation by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf("") }
     val focusManager = LocalFocusManager.current
+    val configuration = LocalConfiguration.current
+    val isTablet = configuration.screenWidthDp >= 600
+
+    val widthFraction = when {
+        isTablet && configuration.orientation == Configuration.ORIENTATION_LANDSCAPE -> 0.45f
+        isTablet -> 0.6f
+        configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && !isTablet -> 0.8f
+        else -> 1f
+    }
 
     fun isPasswordStrong(password: String): Boolean {
         return password.length >= 8 &&
@@ -110,11 +123,20 @@ fun SignUpScreen(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "Specialized equipment app",
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 24.dp),
+            textAlign = TextAlign.Center
+        )
         OutlinedTextField(
             value = email,
             onValueChange = {email = it},
             label = { Text("Enter your email") },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(widthFraction),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next)
@@ -126,7 +148,7 @@ fun SignUpScreen(
             value = password,
             onValueChange = {password = it},
             label = { Text("Enter your password") },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(widthFraction),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Next
@@ -148,7 +170,7 @@ fun SignUpScreen(
             value = passwordConfirmation,
             onValueChange = {passwordConfirmation = it},
             label = { Text("Confirm your password") },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(widthFraction),
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Password,
                 imeAction = ImeAction.Done
@@ -188,7 +210,7 @@ fun SignUpScreen(
                 text = errorMessage,
                 color = MaterialTheme.colorScheme.error,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.align(Alignment.Start)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             Spacer(modifier = Modifier.height(8.dp))
         }
@@ -209,7 +231,7 @@ fun SignUpScreen(
                     onSignUp(email, password)
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(widthFraction)
         ) {
             Text("Sign Up")
         }
